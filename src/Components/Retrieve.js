@@ -5,7 +5,9 @@ class Retrieve extends Component {
   render() {
     return (
       <div>
-        <h1>Retrieve Information</h1>
+        <Typography variant='body1' >
+          <h1>Retrieve Information</h1>
+        </Typography>
       </div>
     )
   }

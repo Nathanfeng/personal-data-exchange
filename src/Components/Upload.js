@@ -25,7 +25,7 @@ class Upload extends Component {
     const privateKey = event.target.elements.privateKey.value;
     const name = event.target.elements.name.value;
     const phoneNumber = event.target.elements.phoneNumber.value;
-    // this.props.onSearchSubmit(privateKey, name, phoneNumber);
+    this.recordData(privateKey, name, phoneNumber);
   }
 
   render(){
