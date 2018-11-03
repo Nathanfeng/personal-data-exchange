@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.3.2",
+    "history": "^4.7.2",
     "linnia-brand": "^1.0.17",
     "material-ui": "^0.20.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1"
   },
   "scripts": {

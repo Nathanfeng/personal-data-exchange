@@ -14,50 +14,50 @@ const styles = (theme) => ({
 
 class UploadForm extends Component {
 
-
-
-  handleSubmit = () => {
-
-  }
-
-  componentDidMount = async () => {
-
-  }
+  // componentDidMount = async () => {
+  //
+  // }
 
   render() {
-    const {classes} = this.props
+    const {
+      classes,
+      onInputChange,
+      handleSubmit,
+      privateKey,
+      phoneNumber,
+      name
+    } = this.props
+
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <TextField
-            // id='privateKey'
+            id='privateKey'
             label='Private Key'
             required
-            // value={privateKey.replace(/\s/g, '')}
-            // onChange={onInputChange}
+            value={privateKey.replace(/\s/g, '')}
+            onChange={onInputChange('privateKey')}
             className={classes.space}
             margin='normal'
           /><br/>
           <TextField
-            // id='privateKey'
+            id='name'
+            label='First Name'
+            required
+            value={name.replace(/\s/g, '')}
+            onChange={onInputChange('name')}
+            className={classes.space}
+            margin='normal'
+          /> <br/>
+          <TextField
+            id='phoneNumber'
             label='Phone Number'
             required
-            // value={privateKey.replace(/\s/g, '')}
-            // onChange={onInputChange}
+            value={phoneNumber.replace(/\s/g, '')}
+            onChange={onInputChange('phoneNumber')}
             className={classes.space}
             margin='normal'
           /><br/>
-          <TextField
-            // id='privateKey'
-            label='Email'
-            required
-            // value={privateKey.replace(/\s/g, '')}
-            // onChange={onInputChange}
-            className={classes.space}
-            margin='normal'
-          />
-
-        <br/>
           <Button type='submit'>
             Submit Your Information
           </Button>

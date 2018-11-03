@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tab from '@material-ui/core/Tab';
 import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
-import Logo from 'linnia-brand/components/Logo';
+import Logo from '../data-exchange-logo.png';
 
 const height = 35;
 const width = 35;
@@ -39,45 +39,38 @@ class Header extends Component {
       <AppBar position='sticky' color='primary'>
         <Toolbar className={classes.tabs}>
           <Tab
-            label={<Logo style={{ height, width }} />}
-            onClick={this.navigateTo('/')}
+            label={<img src={Logo} style={{ height, width }} />}
+            onClick={this.navigateTo('/Upload')}
             classes={{
               root: `${classes.tab}`,
               labelContainer: classes.tabLabelContainer,
             }}
           />
           <Tab
-            label='Users'
-            onClick={this.navigateTo('/get_user')}
+            label='Upload'
+            onClick={this.navigateTo('/Upload')}
             classes={{
                     root: `${classes.tab}`,
                     labelContainer: classes.tabLabelContainer,
                 }}
             />
           <Tab
-            label='Records'
-            onClick={this.navigateTo('/get_record')}
+            label='Retrieve Record'
+            onClick={this.navigateTo('/retrieve_record')}
             classes={{
               root: `${classes.tab}`,
               labelContainer: classes.tabLabelContainer,
             }}
           />
           <Tab
-            label='Permissions'
-            onClick={this.navigateTo('/permissions')}
+            label='Grant Access'
+            onClick={this.navigateTo('/grant_access')}
             classes={{
               root: `${classes.tab}`,
               labelContainer: classes.tabLabelContainer,
             }}
           />
-          <Tab
-            label='Search'
-            onClick={this.navigateTo('/search')}
-            classes={{
-              root: `${classes.tab}`,
-              labelContainer: classes.tabLabelContainer,
-            }}
-          />
+
         </Toolbar>
       </AppBar>
     );
