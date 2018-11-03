@@ -10,6 +10,8 @@ import './App.css';
 // Components
 import Upload from './Components/Upload';
 import Header from './Components/Header';
+import Retrieve from './Components/Retrieve';
+import GrantAccess from './Components/GrantAccess';
 
 
 const history = createHistory({
@@ -35,8 +37,17 @@ class App extends Component {
           <main className={classes.main}>
             <Switch>
               <Route
-                path='*'
+                path='/'
+                exact
                 component={Upload}
+              />
+              <Route
+                path='/retrieve_record'
+                component={Retrieve}
+              />
+              <Route
+                path='/grant_access'
+                component={GrantAccess}
               />
             </Switch>
           </main>

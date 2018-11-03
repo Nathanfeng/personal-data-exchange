@@ -40,7 +40,7 @@ class Header extends Component {
         <Toolbar className={classes.tabs}>
           <Tab
             label={<img src={Logo} style={{ height, width }} />}
-            onClick={this.navigateTo('/Upload')}
+            onClick={this.navigateTo('/')}
             classes={{
               root: `${classes.tab}`,
               labelContainer: classes.tabLabelContainer,
@@ -48,7 +48,7 @@ class Header extends Component {
           />
           <Tab
             label='Upload'
-            onClick={this.navigateTo('/Upload')}
+            onClick={this.navigateTo('/')}
             classes={{
                     root: `${classes.tab}`,
                     labelContainer: classes.tabLabelContainer,
