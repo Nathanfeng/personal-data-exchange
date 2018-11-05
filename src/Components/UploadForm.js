@@ -14,16 +14,12 @@ const styles = (theme) => ({
 
 class UploadForm extends Component {
 
-  // componentDidMount = async () => {
-  //
-  // }
-
   render() {
     const {
       classes,
       onInputChange,
       handleSubmit,
-      privateKey,
+      publicKey,
       phoneNumber,
       name
     } = this.props
@@ -32,11 +28,11 @@ class UploadForm extends Component {
       <div>
         <form onSubmit={handleSubmit}>
           <TextField
-            id='privateKey'
-            label='Private Key'
+            id='publicKey'
+            label='Public Key'
             required
-            value={privateKey.replace(/\s/g, '')}
-            onChange={onInputChange('privateKey')}
+            value={publicKey.replace(/\s/g, '')}
+            onChange={onInputChange('publicKey')}
             className={classes.space}
             margin='normal'
           /><br/>
