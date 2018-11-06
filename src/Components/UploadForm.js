@@ -21,7 +21,10 @@ class UploadForm extends Component {
       handleSubmit,
       publicKey,
       phoneNumber,
-      name
+      name,
+      errorMessage,
+      loading,
+      msg
     } = this.props
 
     return (
@@ -36,6 +39,7 @@ class UploadForm extends Component {
             className={classes.space}
             margin='normal'
           /><br/>
+
           <TextField
             id='name'
             label='First Name'
@@ -45,6 +49,7 @@ class UploadForm extends Component {
             className={classes.space}
             margin='normal'
           /> <br/>
+
           <TextField
             id='phoneNumber'
             label='Phone Number'
@@ -54,10 +59,14 @@ class UploadForm extends Component {
             className={classes.space}
             margin='normal'
           /><br/>
-          <Button type='submit'>
+
+          <Button type='submit' loading={loading}>
             Submit Your Information
           </Button>
-        </form>
+        </form><br/>
+
+        {errorMessage && <p>{errorMessage}</p>}
+        {msg && <p>{msg}</p>}
       </div>
     )
   }

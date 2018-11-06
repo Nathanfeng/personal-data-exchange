@@ -23,8 +23,9 @@ class Upload extends Component {
     publicKey: "",
     name: "",
     phoneNumber: "",
-    errorMessage: '',
+    errorMessage: false,
     loading: false,
+    msg: false
   }
 
   onInputChange = (property) => (event) => {
@@ -34,14 +35,14 @@ class Upload extends Component {
 
   addRecordToIPFS = async() => {
     let encrypted, ipfsRecord;
-    const {phoneNumber, name,} = this.state;
+    const {phoneNumber, name} = this.state;
 
     const data = {
       'Name': name,
       'PhoneNumber': phoneNumber
     };
 
-    this.setState({ errorMessage: '', msg: '', loading: true });
+    this.setState({ loading: true });
 
     try {
       encrypted = await encrypt(this.state.publicKey, JSON.stringify(data));
@@ -87,7 +88,14 @@ class Upload extends Component {
   }
 
   render(){
-    const {phoneNumber, name, publicKey} = this.state
+    const {
+      phoneNumber,
+      name,
+      publicKey,
+      errorMessage,
+      loading,
+      msg
+    } = this.state
 
     return (
       <div>
@@ -96,6 +104,9 @@ class Upload extends Component {
           publicKey={publicKey}
           name={name}
           phoneNumber={phoneNumber}
+          msg={msg}
+          errorMessage={errorMessage}
+          loading={loading}
           onInputChange={this.onInputChange}
           handleSubmit={this.handleSubmit}
         />
