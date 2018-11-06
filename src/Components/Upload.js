@@ -75,7 +75,10 @@ class Upload extends Component {
     try {
       const { records } = await linnia.getContractInstances();
       await records.addRecord(dataHash, metadata, dataUri, { from: accounts[0] });
-      this.setState({ msg: `Your info was added to Linnia! This is the associated data hash: ${dataHash}` });
+      this.setState({
+        msg: `Your info was added to Linnia! This is the associated data hash: ${dataHash}`,
+        errorMessage: false
+      });
     } catch (err) {
       this.setState({ errorMessage: err.message });
       return;

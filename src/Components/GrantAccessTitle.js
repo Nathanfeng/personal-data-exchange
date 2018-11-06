@@ -15,8 +15,8 @@ class GrantAccess extends Component {
   render(){
     return (
       <div>
-        <Typography variant='body1' >
-          <h1>Grant Access to Your Information</h1>
+        <Typography variant='title' >
+          Grant Access to Your Information
         </Typography>
       </div>
     )

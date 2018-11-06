@@ -42,11 +42,14 @@ class Retrieve extends Component {
     this.setState({ [property]: value });
   }
 
-  handleSubmitRetrieve = async (e) => {
-    e.preventDefault();
+  retrieveRecordFromLinnia = async () => {
     const linniaRecord = await linnia.getRecord(this.state.dataHash);
     const ipfsLink = linniaRecord.dataUri;
+    return ipfsLink;
+  }
 
+  getDecryptedData = async () => {
+    const ipfsLink = await this.retrieveRecordFromLinnia();
     ipfs.cat(ipfsLink, async (err, ipfsRes) => {
       if(err) {
         this.setState({errorMessage: err.message});
@@ -60,6 +63,11 @@ class Retrieve extends Component {
         }
       }
     })
+  }
+
+  handleSubmitRetrieve = async (e) => {
+    e.preventDefault();
+    await this.getDecryptedData();
   }
 
   render() {
