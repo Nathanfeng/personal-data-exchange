@@ -6,25 +6,29 @@ import GrantAccessForm from './GrantAccessForm';
 class GrantAccess extends Component {
 
   state = {
-    privateKey: '',
+    publicKey: '',
     dataHash: '',
+    address: '',
     msg: false,
     errorMessage: false,
     loading: false
   }
 
-  onInputChange = () => {
-
+  onInputChange = (property) => (event) => {
+    const value = event.target.value;
+    this.setState({ [property]: value });
   }
 
-  handleSubmitAccess = () => {
-
+  handleSubmitAccess = (e) => {
+    e.preventDefault();
+    
   }
 
   render(){
     const {
-      privateKey,
+      publicKey,
       dataHash,
+      address,
       msg,
       errorMessage,
       loading
@@ -34,8 +38,9 @@ class GrantAccess extends Component {
       <div>
         <GrantAccessTitle/>
         <GrantAccessForm
-          privateKey={privateKey}
+          publicKey={publicKey}
           dataHash={dataHash}
+          address={address}
           msg={msg}
           errorMessage={errorMessage}
           loading={loading}

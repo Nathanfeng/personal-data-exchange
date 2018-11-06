@@ -12,7 +12,6 @@ const styles = (theme) => ({
 });
 class GrantAccess extends Component {
 
-
   render(){
     return (
       <div>

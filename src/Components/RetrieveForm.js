@@ -13,15 +13,13 @@ const styles = (theme) => ({
   }
 });
 
-class GrantAccess extends Component {
-
+class RetrieveForm extends Component {
 
   render(){
     const {
       onInputChange,
-      handleSubmitAccess,
-      publicKey,
-      address,
+      handleSubmitRetrieve,
+      privateKey,
       dataHash,
       loading,
       classes
@@ -30,35 +28,16 @@ class GrantAccess extends Component {
     return (
       <div>
         <Typography variant='body1' >
-          <p>Please fill out information below to give permission to view your data</p>
+          <p>Please fill out information below to retrieve information from Linnia</p>
         </Typography>
 
-        <form onSubmit={handleSubmitAccess}>
+        <form onSubmit={handleSubmitRetrieve}>
           <TextField
-            id='publicKeyGranter'
-            label='Public Key of Granter'
+            id='privateKey'
+            label='Private Key'
             required
-            value={publicKey.replace(/\s/g, '')}
-            onChange={onInputChange('publicKeyGranter')}
-            className={classes.space}
-            margin='normal'
-          /><br/>
-          <TextField
-            id='publicKeyGrantee'
-            label='Public Key of Grantee'
-            required
-            value={publicKey.replace(/\s/g, '')}
-            onChange={onInputChange('publicKeyGrantee')}
-            className={classes.space}
-            margin='normal'
-          /><br/>
-
-          <TextField
-            id='address'
-            label='Address of Grantee'
-            required
-            value={publicKey.replace(/\s/g, '')}
-            onChange={onInputChange('address')}
+            value={privateKey.replace(/\s/g, '')}
+            onChange={onInputChange('privateKey')}
             className={classes.space}
             margin='normal'
           /><br/>
@@ -74,7 +53,7 @@ class GrantAccess extends Component {
           /> <br/>
 
           <Button type='submit' loading={loading}>
-            Grant Access to Record
+            Retrieve Record
           </Button>
         </form><br/>
 
@@ -84,4 +63,4 @@ class GrantAccess extends Component {
   }
 }
 
-export default withStyles(styles)(GrantAccess);
+export default withStyles(styles)(RetrieveForm);

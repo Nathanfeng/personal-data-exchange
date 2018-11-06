@@ -47,12 +47,12 @@ class Header extends Component {
             }}
           />
           <Tab
-            label='Upload'
+            label='Upload Record'
             onClick={this.navigateTo('/')}
             classes={{
-                    root: `${classes.tab}`,
-                    labelContainer: classes.tabLabelContainer,
-                }}
+              root: `${classes.tab}`,
+              labelContainer: classes.tabLabelContainer,
+            }}
             />
           <Tab
             label='Retrieve Record'
