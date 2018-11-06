@@ -93,10 +93,12 @@ class Retrieve extends Component {
 
       {
         decryptedIPFS && (
-          <ul>
-            <li>Name: {jsonInfo.Name}</li>
-            <li>Phone Number: {jsonInfo.PhoneNumber}</li>
-          </ul>
+          <Typography variant='body1'>
+            <ul>
+              <li>Name: {jsonInfo.Name}</li>
+              <li>Phone Number: {jsonInfo.PhoneNumber}</li>
+            </ul>
+          </Typography>
         )
       }
 

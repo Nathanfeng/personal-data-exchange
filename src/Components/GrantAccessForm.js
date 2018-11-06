@@ -20,8 +20,9 @@ class GrantAccess extends Component {
     const {
       onInputChange,
       handleSubmitAccess,
-      publicKey,
-      address,
+      granterPrivateKey,
+      granteePublicKey,
+      granteeAddress,
       dataHash,
       loading,
       classes
@@ -35,30 +36,30 @@ class GrantAccess extends Component {
 
         <form onSubmit={handleSubmitAccess}>
           <TextField
-            id='publicKeyGranter'
+            id='granterPrivateKey'
             label='Public Key of Granter'
             required
-            value={publicKey.replace(/\s/g, '')}
-            onChange={onInputChange('publicKeyGranter')}
+            value={granterPrivateKey.replace(/\s/g, '')}
+            onChange={onInputChange('granterPrivateKey')}
             className={classes.space}
             margin='normal'
           /><br/>
           <TextField
-            id='publicKeyGrantee'
+            id='granteePublicKey'
             label='Public Key of Grantee'
             required
-            value={publicKey.replace(/\s/g, '')}
-            onChange={onInputChange('publicKeyGrantee')}
+            value={granteePublicKey.replace(/\s/g, '')}
+            onChange={onInputChange('granteePublicKey')}
             className={classes.space}
             margin='normal'
           /><br/>
 
           <TextField
-            id='address'
+            id='granteeAddress'
             label='Address of Grantee'
             required
-            value={publicKey.replace(/\s/g, '')}
-            onChange={onInputChange('address')}
+            value={granteeAddress.replace(/\s/g, '')}
+            onChange={onInputChange('granteeAddress')}
             className={classes.space}
             margin='normal'
           /><br/>
@@ -77,7 +78,6 @@ class GrantAccess extends Component {
             Grant Access to Record
           </Button>
         </form><br/>
-
 
       </div>
     )
