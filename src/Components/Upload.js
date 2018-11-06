@@ -7,6 +7,7 @@ import web3 from '../utils/web3';
 //files
 import UploadForm from './UploadForm';
 import UploadTitle from './UploadTitle';
+import GenerateIdentity from './GenerateIdentity';
 
 
 const hubAddress = config.LINNIA_HUB_ADDRESS;
@@ -110,6 +111,7 @@ class Upload extends Component {
           onInputChange={this.onInputChange}
           handleSubmit={this.handleSubmit}
         />
+        <GenerateIdentity/>
       </div>
     )
   }
