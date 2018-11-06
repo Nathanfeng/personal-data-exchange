@@ -31,13 +31,13 @@ class GrantAccess extends Component {
     return (
       <div>
         <Typography variant='body1' >
-          <p>Please fill out information below to give permission to view your data</p>
+          Please fill out information below to give permission to view your data
         </Typography>
 
         <form onSubmit={handleSubmitAccess}>
           <TextField
             id='granterPrivateKey'
-            label='Public Key of Granter'
+            label='Private Key of Granter'
             required
             value={granterPrivateKey.replace(/\s/g, '')}
             onChange={onInputChange('granterPrivateKey')}

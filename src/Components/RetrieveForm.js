@@ -28,7 +28,7 @@ class RetrieveForm extends Component {
     return (
       <div>
         <Typography variant='body1' >
-          <p>Please fill out information below to retrieve information from Linnia</p>
+          Please fill out information below to retrieve information from Linnia
         </Typography>
 
         <form onSubmit={handleSubmitRetrieve}>

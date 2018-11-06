@@ -24,7 +24,7 @@ class Upload extends Component {
     name: "",
     phoneNumber: "",
     errorMessage: false,
-    loading: false,
+    loading: "false",
     msg: false
   }
 
@@ -42,7 +42,7 @@ class Upload extends Component {
       'PhoneNumber': phoneNumber
     };
 
-    this.setState({ loading: true });
+    this.setState({ loading: "true" });
 
     try {
       encrypted = await encrypt(this.state.publicKey, JSON.stringify(data));
@@ -74,7 +74,7 @@ class Upload extends Component {
     try {
       const { records } = await linnia.getContractInstances();
       await records.addRecord(dataHash, metadata, dataUri, { from: accounts[0] });
-      this.setState({ msg: "Your info was added to Linnia!" });
+      this.setState({ msg: `Your info was added to Linnia! This is the associated data hash: ${dataHash}` });
     } catch (err) {
       this.setState({ errorMessage: err.message });
       return;

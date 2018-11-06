@@ -34,7 +34,7 @@ class Retrieve extends Component {
     decryptedIPFS: false,
     msg: false,
     errorMessage: false,
-    loading: false
+    loading: "false"
   }
 
   onInputChange = (property) => (event) => {
@@ -44,7 +44,6 @@ class Retrieve extends Component {
 
   handleSubmitRetrieve = async (e) => {
     e.preventDefault();
-    const userAddr = await web3.eth.getAccounts();
     const linniaRecord = await linnia.getRecord(this.state.dataHash);
     const ipfsLink = linniaRecord.dataUri;
 
@@ -77,8 +76,8 @@ class Retrieve extends Component {
     let jsonInfo = JSON.parse(decryptedIPFS);
     return (
       <div>
-        <Typography variant='body1' >
-          <h1>Retrieve Information</h1>
+        <Typography variant='title' >
+          Retrieve Information
         </Typography>
 
         <RetrieveForm

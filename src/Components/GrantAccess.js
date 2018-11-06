@@ -26,7 +26,7 @@ class GrantAccess extends Component {
     dataHash: '',
     msg: false,
     errorMessage: false,
-    loading: false
+    loading: "false"
   }
 
   onInputChange = (property) => (event) => {
@@ -35,7 +35,6 @@ class GrantAccess extends Component {
   }
 
   getDecryptedData = async () => {
-    const userAddr = await web3.eth.getAccounts();
     const linniaRecord = await linnia.getRecord(this.state.dataHash);
     const ipfsLink = linniaRecord.dataUri;
     let decryptedIPFS;
@@ -84,6 +83,7 @@ class GrantAccess extends Component {
   }
 
   grantPermissionsOnLinnia = async () => {
+    this.setState({ loading: "false" });
     const {dataHash, granteeAddress} = this.state
     const dataUri = await this.addDecryptedDataToIPFS;
     const accounts = await web3.eth.getAccounts();
@@ -97,7 +97,7 @@ class GrantAccess extends Component {
       return;
     }
 
-    this.setState({ loading: false });
+    this.setState({ loading: "false" });
   }
 
   handleSubmitAccess = async (e) => {

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = (theme) => ({
@@ -65,8 +66,8 @@ class UploadForm extends Component {
           </Button>
         </form><br/>
 
-        {errorMessage && <p>{errorMessage}</p>}
-        {msg && <p>{msg}</p>}
+        {errorMessage && <Typography variant='body1'>{errorMessage}</Typography>}
+        {msg && <Typography variant='body1'>{msg}</Typography>}
       </div>
     )
   }

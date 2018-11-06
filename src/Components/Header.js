@@ -39,7 +39,7 @@ class Header extends Component {
       <AppBar position='sticky' color='primary'>
         <Toolbar className={classes.tabs}>
           <Tab
-            label={<img src={Logo} style={{ height, width }} />}
+            label={<img alt='' src={Logo} style={{ height, width }} />}
             onClick={this.navigateTo('/')}
             classes={{
               root: `${classes.tab}`,

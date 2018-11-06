@@ -1,17 +1,28 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
 
+
+const styles = (theme) => ({
+  space: {
+    marginRight: theme.spacing.unit * 5,
+  },
+  text: {
+    marginTop: 20,
+  }
+});
 
 const UploadTitle = (props) => {
   return (
     <div>
-      <Typography variant='body1' >
-        <h1>Personal Data Exchange</h1>
-        <h2>Upload your Personal Information to Linnia</h2>
-        <p>Please Fill Out Your Information Below</p>
+      <Typography variant='title'>
+        Personal Data Exchange
+      </Typography> <br/>
+      <Typography variant='body1'>
+        Fill Out Your Information Below and Upload your Personal Information to Linnia
       </Typography>
     </div>
   )
 }
 
-export default UploadTitle;
+export default withStyles(styles)(UploadTitle);
