@@ -38,13 +38,13 @@ class GrantAccess extends Component {
     const userAddr = await web3.eth.getAccounts();
     const linniaRecord = await linnia.getRecord(this.state.dataHash);
     const ipfsLink = linniaRecord.dataUri;
-    let encrypted;
+    let decryptedIPFS;
 
     ipfs.cat(ipfsLink, async (err, ipfsRes) => {
       if(err) {
         this.setState({errorMessage: err.message});
       } else {
-        encrypted = ipfsRes;
+        let encrypted = ipfsRes;
         try {
           const decryptedIPFS = await decrypt(this.state.privateKey, encrypted);
           this.setState({decryptedIPFS});
@@ -54,12 +54,10 @@ class GrantAccess extends Component {
       }
     })
 
-    return encrypted;
+    return decryptedIPFS;
   }
 
-  handleSubmitAccess = async (e) => {
-    e.preventDefault();
-    const {dataHash, granteeAddress} = this.state
+  addDecryptedDataToIPFS = async () => {
     const data = await this.getDecryptedData();
     let encrypted;
     let ipfsRecord;
@@ -82,7 +80,12 @@ class GrantAccess extends Component {
       return;
     }
 
-    const dataUri = ipfsRecord;
+    return ipfsRecord;
+  }
+
+  grantPermissionsOnLinnia = async () => {
+    const {dataHash, granteeAddress} = this.state
+    const dataUri = await this.addDecryptedDataToIPFS;
     const accounts = await web3.eth.getAccounts();
     try {
       const { permissions } = await linnia.getContractInstances();
@@ -95,6 +98,11 @@ class GrantAccess extends Component {
     }
 
     this.setState({ loading: false });
+  }
+
+  handleSubmitAccess = async (e) => {
+    e.preventDefault();
+    await this.grantPermissionsOnLinnia();
   }
 
   render(){
